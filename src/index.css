@@ -1,0 +1,23 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Sansation", sans-serif;
+  src: url(./fonts/Sansation-Bold.ttf) format("truetype")
+    url(./fonts/Sansation-Light.ttf) format("truetype")
+    url(./fonts/Sansation-Regular.ttf) format("truetype");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

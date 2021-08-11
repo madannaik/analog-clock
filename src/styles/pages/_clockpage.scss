@@ -1,0 +1,230 @@
+.clock {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: all 1s;
+
+  &__circle {
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 100%;
+    background-image: radial-gradient(
+      $color-white 0%,
+      $color-white 3%,
+      $color-secondary-dark 3%,
+      $color-secondary-dark 55%,
+      $color-primary-dark 55%
+    );
+
+    box-shadow: 36px 14px 30px 9px #172f6a99,
+      -44px -7px 40px 15px rgba(0, 0, 0, 0.25);
+  }
+  &__hand {
+    position: absolute;
+
+    transition: all 0.5s;
+    &--min {
+      top: 49.5%;
+      width: 25%;
+      height: 4px;
+      background-color: $color-white;
+      z-index: 3;
+      left: 50%;
+      transform-origin: left;
+    }
+    &--hour {
+      top: 49.5%;
+      height: 6px;
+      width: 20%;
+      background-color: $color-white;
+      z-index: 2;
+      transform: rotate(360deg);
+      transform-origin: left;
+      left: 49.5%;
+    }
+    &--sec {
+      top: 50.1%;
+      height: 2px;
+      width: 30%;
+      background-color: #da2e7c;
+      left: 49.4%;
+      z-index: 10;
+      // transform: rotate(0deg);
+      transform-origin: 0% 0%;
+      z-index: 1;
+    }
+  }
+  &__digi {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    flex-direction: column;
+
+    &--day {
+      height: 100%;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-align: center;
+    }
+    &--time {
+      font-size: 4rem;
+      text-align: center;
+      span {
+        min-width: 2rem;
+        display: inline-block;
+        animation: hidenohide 1s ease-in-out infinite backwards;
+        margin-bottom: 40px;
+        text-align: center;
+        font-size: 4rem;
+      }
+    }
+  }
+  &__theme-switch {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    width: 10px;
+  }
+  #switch {
+    display: none;
+    transition: all 3s linear;
+  }
+  .switch-label {
+    width: 5rem;
+    height: 5rem;
+    background-color: rebeccapurple;
+    position: relative;
+
+    &::after {
+      transition: all 1s linear;
+      position: absolute;
+      content: "";
+      display: block;
+      border-radius: 100%;
+      background-color: white;
+      background-image: url(../../assets/MoonStars.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  #switch:checked + .switch-label::after {
+    background-color: $color-secondary-dark;
+    transform: rotate(360deg);
+    background-image: url(../../assets/SunDim.svg);
+  }
+}
+#switch:checked {
+}
+
+@keyframes hidenohide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 320px) {
+  .clock {
+    &__circle {
+      width: 70%;
+      top: 37%;
+      left: 50%;
+      padding-top: 70%;
+    }
+    .switch-label::after {
+      top: -3rem;
+      left: -1rem;
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}
+@media (min-width: 500px) {
+  .clock {
+    &__circle {
+      width: 60%;
+      top: 37%;
+      left: 50%;
+      padding-top: 60%;
+    }
+  }
+}
+
+
+@media (min-width: 800px) {
+  .clock {
+    &__circle {
+      width: 50%;
+      top: 37%;
+      left: 50%;
+      padding-top: 50%;
+    }
+    &__digi {
+      &--day {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .clock {
+    &__circle {
+      width: 40%;
+      top: 37%;
+      left: 50%;
+      padding-top: 40%;
+    }
+  }
+}
+
+@media (min-width: 1204px) {
+  .clock {
+    &__circle {
+      width: 30%;
+      top: 39%;
+      left: 50%;
+      padding-top: 30%;
+    }
+  }
+}
+@media (min-width: 1440px) {
+  .clock {
+    &__circle {
+      width: 38%;
+      top: 37%;
+      left: 50%;
+      padding-top: 38%;
+    }
+    &__digi {
+      &--day {
+        font-size: 4rem;
+      }
+      &--time {
+        font-size: 5rem;
+        span {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1648px) {
+  .clock {
+    &__circle {
+      width: 40%;
+      top: 37%;
+      left: 50%;
+      padding-top: 40%;
+    }
+  }
+}
