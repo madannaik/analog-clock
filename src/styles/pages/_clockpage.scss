@@ -186,28 +186,38 @@
     }
   }
 }
+@media (min-width: 1000px) {
+  .clock {
+    &__circle {
+      width: 25%;
+      top: 37%;
+      left: 50%;
+      padding-top: 25%;
+    }
+  }
+}
 
 @media (min-width: 1204px) {
   .clock {
     &__circle {
-      width: 30%;
+      width: 25%;
       top: 39%;
       left: 50%;
-      padding-top: 30%;
+      padding-top: 24%;
     }
   }
 }
 @media (min-width: 1440px) {
   .clock {
     &__circle {
-      width: 38%;
+      width: 25%;
       top: 37%;
       left: 50%;
-      padding-top: 38%;
+      padding-top: 25%;
     }
     &__digi {
       &--day {
-        font-size: 4rem;
+        font-size: 3rem;
       }
       &--time {
         font-size: 5rem;
@@ -221,10 +231,10 @@
 @media (min-width: 1648px) {
   .clock {
     &__circle {
-      width: 40%;
+      width: 33%;
       top: 37%;
       left: 50%;
-      padding-top: 40%;
+      padding-top: 33%;
     }
   }
 }
