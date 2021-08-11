@@ -4,14 +4,12 @@
   position: relative;
   overflow: hidden;
   transition: all 1s;
-  -webkit-transition: all 1s;
 
   &__circle {
     position: absolute;
 
     transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    
+
     border-radius: 100%;
     background-image: radial-gradient(
       $color-white 0%,
@@ -111,7 +109,6 @@
       border-radius: 100%;
       background-color: white;
       background-image: url(../../assets/MoonStars.svg);
-    
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -120,10 +117,10 @@
   #switch:checked + .switch-label::after {
     background-color: $color-secondary-dark;
     transform: rotate(360deg);
-    -webkit-transform:  rotate(360deg);
     background-image: url(../../assets/SunDim.svg);
-    
   }
+}
+#switch:checked {
 }
 
 @keyframes hidenohide {
