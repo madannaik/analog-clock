@@ -7,16 +7,22 @@ export type timeDetails = {
   sec: String;
   exactHour: Number;
   exactMin: Number;
+  exactSec:Number;
 };
 
+
+// function which gives acuarate angle for clock hands to display in circle
 export function time(date: Date): timeDetails {
   const hour: String = String(((date.getHours() % 12) - 1) * 30 + 300);
   const min: String = String(date.getMinutes() * 6 + 270);
   const sec: String = String(date.getSeconds() * 6 - 90);
   const exactHour: Number = date.getHours();
   const exactMin: Number = date.getMinutes();
-  return { hour, min, sec, exactHour, exactMin };
+  const exactSec:Number = date.getSeconds(); 
+  return { hour, min, sec, exactHour, exactMin ,exactSec};
 }
+
+
 
 export const secHandAnim = (sec: string) => {
   return keyframes`

@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../utils/themes";
-import { gsDayNames, secHandAnim, time, timeDetails } from "../utils/common";
+import {
+  gsDayNames,
+  secHandAnim,
+  time,
+  timeDetails,
+} from "../utils/common";
 import { GlobalStyles } from "../styled.d";
 
 export default function ClockPage() {
-
-
   const date: Date = new Date();
 
   // get todays weekday
@@ -16,7 +19,7 @@ export default function ClockPage() {
   const [setTheme, setThemestate] = useState(false);
 
   // get time at initail state
-  const { hour, min, sec } = time(date);
+  const { hour, min } = time(date);
 
   const [state, setstate] = useState<timeDetails | null>({
     hour: "0",
@@ -24,6 +27,7 @@ export default function ClockPage() {
     sec: "0",
     exactHour: 0,
     exactMin: 0,
+    exactSec: 0,
   });
 
   // get time for every 1 sec and update time variable
@@ -32,7 +36,6 @@ export default function ClockPage() {
     setstate(time(date));
   };
 
-  
   useEffect(() => {
     setInterval(refreshTime, 1000);
   }, []);
@@ -49,9 +52,13 @@ export default function ClockPage() {
         <div className="clock__digi">
           <div className="clock__digi--day">{today}</div>
           <div className="clock__digi--time">
-            {state?.exactHour}
-            <span>:</span>
-            {state?.exactMin}
+
+              {state?.exactHour}
+              <span>:</span>
+              {state?.exactMin}
+              <span>:</span>
+              {state?.exactSec}
+
           </div>
         </div>
         <div className="clock__circle ">
